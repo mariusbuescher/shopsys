@@ -89,8 +89,9 @@ class ArticleDataFixture extends AbstractReferenceFixture
             $articleData->placement = Article::PLACEMENT_FOOTER;
             $this->createArticle($articleData);
         }
-
-        $this->changeDataForSecondDomain();
+        if ($this->domain->isMultidomain()) {
+            $this->changeDataForSecondDomain();
+        }
     }
 
     /**
